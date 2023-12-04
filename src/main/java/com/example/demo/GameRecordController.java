@@ -34,7 +34,7 @@ public class GameRecordController {
         System.out.println("Received game record: " + gameRecord);
 
         try {
-            gameRecordRepository.save(gameRecord);
+            this.gameRecordRepository.save(gameRecord);
         } catch (Exception e) {
             System.out.println("Error saving game record: " + e.getMessage());
             return "Error saving game record";
