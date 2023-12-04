@@ -7,15 +7,30 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
+
 public class UserController {
     private final UserRepository userRepository;
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+
+    @GetMapping("/findByGoogleId/{googleId}")
+    public ResponseEntity<List<User>> findByGoogleId(@PathVariable String googleId) {
+        List<User> users = userRepository.findByGoogleId(googleId);
+        if (users.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ArrayList<>());
+        }
+        return ResponseEntity.ok(users);
     }
 
     @PostMapping
@@ -52,6 +67,12 @@ public class UserController {
         }
     }
 
+    @GetMapping("/exists/{googleId}")
+    public ResponseEntity<Boolean> userExists(@PathVariable String googleId) {
+        List<User> users = userRepository.findByGoogleId(googleId);
+        boolean exists = !users.isEmpty();
+        return ResponseEntity.ok(exists);
+    }
 
 
 

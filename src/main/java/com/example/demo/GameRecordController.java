@@ -30,7 +30,7 @@ public class GameRecordController {
             return "Invalid game record";
         }
 
-        // 受け取ったゲームレコードの内容をログに出力
+        // input record to log
         System.out.println("Received game record: " + gameRecord);
 
         try {

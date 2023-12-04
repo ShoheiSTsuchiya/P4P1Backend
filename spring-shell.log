@@ -10,3 +10,4 @@
 1701238252629:save-game-record "1234567890" 100
 1701477214458:curl "http://localhost:8080/fetchUserScores?googleId=s0NXZCJBs5Rnru0PtdrPApTQGN33&page=0&size=10"
 1701484631267:y
+1701659429744:save-user 12345 shohei tsuchiya
