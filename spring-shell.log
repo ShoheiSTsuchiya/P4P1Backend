@@ -6,3 +6,7 @@
 1695525483086:save-book
 1695525510129:save-book abc wolber 2023
 1695525519152:find-all-books
+1701238240045:save-user "1234567890" "player1" "John Doe" "johndoe@example.com"
+1701238252629:save-game-record "1234567890" 100
+1701477214458:curl "http://localhost:8080/fetchUserScores?googleId=s0NXZCJBs5Rnru0PtdrPApTQGN33&page=0&size=10"
+1701484631267:y
